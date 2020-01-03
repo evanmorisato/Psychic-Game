@@ -37,6 +37,7 @@ function reset() {
 document.onkeyup = function(event) {
     var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
     console.log(userGuess);
+    var check = lettersGuessed.includes(userGuess);
 
     if (userGuess !== computerGuess) {
         guessesLeft--;
@@ -57,8 +58,8 @@ document.onkeyup = function(event) {
         reset();
     }
 
-    else if (lettersGuessed.includes(userGuess)) {
-        
+    else if (check === true) {
+        return false;
     }
 
     // This text will be displayed in the html
